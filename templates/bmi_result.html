@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Result</title>
+    <style>
+        body {
+             display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+         height: 100vh;
+            margin: 0; 
+          
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Your BMI is: {{ bmi }}</h2>
+    <h3>You are: {{ result }}</h3>
+    <button onclick="window.location.href='/'">Try Again</button>
+</body>
+</html>
