@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Result</title>
+    <title>BMI Calculator - Error</title>
     <style>
         * {
             margin: 0;
@@ -50,98 +50,47 @@
             padding: 60px 20px;
         }
 
-        .result-card {
+        .error-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 25px;
             padding: 60px 50px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .bmi-display {
-            margin-bottom: 40px;
-            padding: 40px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 25px;
-            border: 3px solid #e8ecf4;
+        .error-icon {
+            font-size: 4rem;
+            color: #e74c3c;
+            margin-bottom: 30px;
         }
 
-        .bmi-number {
-            font-size: 5rem;
+        .error-title {
+            font-size: 2rem;
             font-weight: 700;
-            color: #333;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .bmi-label {
-            font-size: 1.4rem;
-            color: #6c757d;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        .category-display {
-            margin-bottom: 40px;
-            padding: 40px;
-            border-radius: 25px;
-            background: linear-gradient(135deg, #f8f9fa, #ffffff);
-            border: 3px solid #e8ecf4;
-        }
-
-        .category-name {
-            font-size: 2.5rem;
-            font-weight: 700;
+            color: #e74c3c;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .category-advice {
+        .error-message {
             font-size: 1.2rem;
             color: #495057;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .input-summary {
-            display: flex;
-            justify-content: space-around;
+            line-height: 1.6;
             margin-bottom: 40px;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 25px;
-            border: 3px solid #e8ecf4;
-        }
-
-        .summary-item {
-            text-align: center;
-            flex: 1;
-        }
-
-        .summary-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .summary-label {
-            font-size: 1.1rem;
-            color: #6c757d;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
+            padding: 25px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #e74c3c;
         }
 
         .action-button {
             width: 100%;
-            max-width: 350px;
+            max-width: 300px;
             padding: 25px 40px;
             background: linear-gradient(135deg, #6c5ce7, #a29bfe);
             color: white;
@@ -179,27 +128,23 @@
                 letter-spacing: 2px;
             }
             
-            .result-card {
+            .error-card {
                 padding: 40px 30px;
                 margin: 20px;
                 border-radius: 20px;
             }
             
-            .bmi-number {
-                font-size: 4rem;
+            .error-icon {
+                font-size: 3rem;
             }
             
-            .category-name {
-                font-size: 2rem;
+            .error-title {
+                font-size: 1.6rem;
             }
             
-            .input-summary {
-                flex-direction: column;
-                gap: 25px;
-            }
-            
-            .bmi-display, .category-display, .input-summary {
-                padding: 30px 25px;
+            .error-message {
+                font-size: 1.1rem;
+                padding: 20px;
             }
         }
 
@@ -208,12 +153,8 @@
                 padding: 40px 15px;
             }
             
-            .result-card {
+            .error-card {
                 padding: 30px 20px;
-            }
-            
-            .bmi-number {
-                font-size: 3.5rem;
             }
         }
     </style>
@@ -221,33 +162,15 @@
 <body>
     <div class="header">
         <h1>BMI</h1>
-        <div class="subtitle">RESULT</div>
+        <div class="subtitle">ERROR</div>
     </div>
 
     <div class="container">
-        <div class="result-card">
-            <div class="bmi-display">
-                <div class="bmi-number">{{ bmi }}</div>
-                <div class="bmi-label">Your BMI</div>
-            </div>
-
-            <div class="category-display">
-                <div class="category-name" style="color: {{ color }};">{{ category }}</div>
-                <div class="category-advice">{{ advice }}</div>
-            </div>
-
-            <div class="input-summary">
-                <div class="summary-item">
-                    <div class="summary-value">{{ height }}</div>
-                    <div class="summary-label">Height (cm)</div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-value">{{ weight }}</div>
-                    <div class="summary-label">Weight (kg)</div>
-                </div>
-            </div>
-
-            <a href="/" class="action-button">Calculate Again</a>
+        <div class="error-card">
+            <div class="error-icon">⚠️</div>
+            <div class="error-title">Input Error</div>
+            <div class="error-message">{{ message }}</div>
+            <a href="/" class="action-button">Try Again</a>
         </div>
     </div>
 </body>
